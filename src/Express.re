@@ -668,7 +668,7 @@ module App = {
   let useRouter = (app, router) => Router.asMiddleware(router) |> use(app);
   let useRouterOnPath = (app, ~path, router) =>
     Router.asMiddleware(router) |> useOnPath(app, ~path);
-  [@bs.module] external make : unit => t = "express";
+  [@bs.module "express"] external make : unit => t = "default";
 
   /*** [make ()] creates an instance of the App class. */
   external asMiddleware : t => Middleware.t = "%identity";
